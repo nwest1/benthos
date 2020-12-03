@@ -47,6 +47,7 @@ const (
 	TypeCloudWatch = "cloudwatch"
 	TypeHTTPServer = "http_server"
 	TypeInflux     = "influx"
+	TypeInfluxV2   = "influxv2"
 	TypePrometheus = "prometheus"
 	TypeRename     = "rename"
 	TypeStatsd     = "statsd"
@@ -64,6 +65,7 @@ type Config struct {
 	CloudWatch CloudWatchConfig `json:"cloudwatch" yaml:"cloudwatch"`
 	HTTP       HTTPConfig       `json:"http_server" yaml:"http_server"`
 	Influx     InfluxConfig     `json:"influx" yaml:"influx"`
+	InfluxV2   InfluxV2Config   `json:"influxv2" yaml:"influxv2"`
 	Prometheus PrometheusConfig `json:"prometheus" yaml:"prometheus"`
 	Rename     RenameConfig     `json:"rename" yaml:"rename"`
 	Statsd     StatsdConfig     `json:"statsd" yaml:"statsd"`
@@ -79,6 +81,7 @@ func NewConfig() Config {
 		CloudWatch: NewCloudWatchConfig(),
 		HTTP:       NewHTTPConfig(),
 		Influx:     NewInfluxConfig(),
+		InfluxV2:   NewInfluxV2Config(),
 		Prometheus: NewPrometheusConfig(),
 		Rename:     NewRenameConfig(),
 		Statsd:     NewStatsdConfig(),
