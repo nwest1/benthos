@@ -343,7 +343,13 @@ func (i *InfluxV2) SetLogger(log log.Modular) {
 }
 
 func (i *InfluxV2) Close() error {
+
+	i.log.Infoln("sending i.publishRegistry one last time.")
+	if err := i.publishRegistry(); err != nil {
+		i.log.Errorf("failed to send metrics data: %v", err)
+	}
 	i.log.Infoln("i.client.Close()")
+
 	i.client.Close()
 	return nil
 }
